@@ -28,6 +28,10 @@ collection = db.collection('example') # create a new collections under "data" na
 
 ```
 
+```Python
+
+```
+
 
 
 

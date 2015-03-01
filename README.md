@@ -28,13 +28,36 @@ collection = db.collection('example') # create a new collections under "data" na
 
 ```
 
+###Insert some data
 ```Python
+col = db.collection('example')
+
+col.insert({'type': 'apple', 'number': 1})
+col.insert({'type': 'pineapple', 'number': 2})
+col.insert({'type': 'blueberry', 'number': 3})
+
 
 ```
 
+###Update some data
+```Python
+col.update({'number':10}, cond= where('type')=='pineapple')
+
+```
+
+###Delete some data
+```Python
+col.remove(eids=[3])
+col.remove(cond=where('number')<4)
+
+```
+
+Other usages are very similar to TinyDB.
 
 
+###Set the parameters
+```Python
+col.setting(file_size=100, query_cache_size=10, write_freq=5)
+```
 
-###To be done before publishing
-- illustrate the use of auto-paging and internal timer
-- add the tests code
+The above setting means each JSON file is limited to 100 entries and the database will store the latest 10 query results in memory and write-to-disk frequency is 5s. 

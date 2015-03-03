@@ -21,6 +21,15 @@ The internal timer and the file size can be set by users.
 ##Version
 The latest version is v0.1.1. Compared with v0.1, some bugs are fixed. However, the current version is still on experimental status. Please use it with caution. Please contact me if you find any bugs/problems.
 
+
+##How to install
+The easiest way to install is to use
+```
+(sudo) pip install tinyble
+```
+
+in the command line tool.  
+
 ##Example
 
 ###Create a new database and a new collection 

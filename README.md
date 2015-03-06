@@ -19,8 +19,11 @@ The internal timer and the file size can be set by users.
 
 
 ##Version
-The latest version is v0.1.1. Compared with v0.1, some bugs are fixed. However, the current version is still on experimental status. Please use it with caution. Please contact me if you find any bugs/problems.
+The latest version is v0.1.3. Compared with v0.1, some bugs are fixed. However, the current version is still on experimental status. Please use it with caution. Please contact me if you find any bugs/problems.
 
+###v0.1.3(04.03.2015)
+- fixed the print bug
+- fixed the 'get' method bug
 
 ##How to install
 The easiest way to install is to use
@@ -29,6 +32,9 @@ The easiest way to install is to use
 ```
 
 in the command line tool.  
+
+##Working with Django
+A very simple and ugly example showing the use of Tinyble with Django can be found in [Tinyble with Django](https://github.com/StevenSLXie/django_with_tinyble)
 
 ##Example
 

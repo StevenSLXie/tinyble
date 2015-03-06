@@ -25,13 +25,13 @@ class Collection(object):
 
 
 		# The maximum limit of each JSON file
-		self.FILE_SIZE_LIMIT = 5
+		self.FILE_SIZE_LIMIT = 100
 
 		# The write-in frequency
-		self.WRITE_IN_FREQ = 0.2
+		self.WRITE_IN_FREQ = 0.1
 
 		# The size for the query cache file
-		self.QUERY_CACHE_SIZE_LIMIT = 20
+		self.QUERY_CACHE_SIZE_LIMIT = 30
 
 		# The number of JSON files and the path for the current JSON file
 		self.file_num, self.current_file = find_current_file(name, os.getcwd()+'/'+database.db_name)
@@ -79,7 +79,7 @@ class Collection(object):
 		self.query_storage = JSONStorage(os.getcwd()+'/'+ self._db.db_name + '/' + self.name + '_query.json')
 		self._query_cache = LRUCache(self.QUERY_CACHE_SIZE_LIMIT, self.query_storage.read(is_ordered_dict=True))
 
-		print self._query_cache.items.keys()
+		# print self._query_cache.items.keys()
 
 
 	def update_storage(self):
@@ -315,7 +315,7 @@ class Collection(object):
 	def clear(self):
 		self.remove()
 
-	def get(self, cond, eid=None):
+	def get(self, cond=None, eid=None):
 
 		if eid is not None:
 			return self._cache[eid]

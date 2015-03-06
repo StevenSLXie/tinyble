@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='tinyble',
-      version='0.1.1',
+      version='0.1.3',
       description='A tiny NoSQL database with in-memory caching',
       url='https://github.com/StevenSLXie/tinyble',
       author='Steven S.L. Xie',

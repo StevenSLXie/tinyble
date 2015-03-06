@@ -25,13 +25,13 @@ class Collection(object):
 
 
 		# The maximum limit of each JSON file
-		self.FILE_SIZE_LIMIT = 5
+		self.FILE_SIZE_LIMIT = 100
 
 		# The write-in frequency
 		self.WRITE_IN_FREQ = 0.2
 
 		# The size for the query cache file
-		self.QUERY_CACHE_SIZE_LIMIT = 20
+		self.QUERY_CACHE_SIZE_LIMIT = 30
 
 		# The number of JSON files and the path for the current JSON file
 		self.file_num, self.current_file = find_current_file(name, os.getcwd()+'/'+database.db_name)
@@ -315,7 +315,7 @@ class Collection(object):
 	def clear(self):
 		self.remove()
 
-	def get(self, cond, eid=None):
+	def get(self, cond=None, eid=None):
 
 		if eid is not None:
 			return self._cache[eid]

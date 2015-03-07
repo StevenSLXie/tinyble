@@ -319,7 +319,8 @@ class Collection(object):
 	def get(self, cond=None, eid=None):
 
 		if eid is not None:
-			return self._cache[eid]
+			read_all = self._read()
+			return read_all[eid]
 
 		elements = self.search(cond)
 
@@ -328,7 +329,7 @@ class Collection(object):
 		return elements[0]
 
 	def close(self):
-		# when closing the database, remember to store those that are still in cache.
+		# when closing the database, remember to store those that are still in cache and cancel the write-in.
 		self.t.cancel()
 		self.update_storage()
 
@@ -336,6 +337,13 @@ class Collection(object):
 		self._current_cache.clear()
 
 		self.t.cancel()
+
+	
+
+
+
+
+
 
 
 

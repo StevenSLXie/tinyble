@@ -19,7 +19,10 @@ The internal timer and the file size can be set by users.
 
 
 ##Version
-The latest version is v0.1.3. Compared with v0.1, some bugs are fixed. However, the current version is still on experimental status. Please use it with caution. Please contact me if you find any bugs/problems.
+The latest version is v0.1.4. The current version is still on experimental status. Please use it with caution. Please contact me if you find any bugs/problems.
+
+###v0.1.4(07.03.2015)
+- added the close() function
 
 ###v0.1.3(04.03.2015)
 - fixed the print bug

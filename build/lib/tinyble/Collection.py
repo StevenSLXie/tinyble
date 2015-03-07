@@ -303,14 +303,16 @@ class Collection(object):
 
 		self._update_disk(pages_eid, fields=None, remove=True)
 
-	def search(self, cond):
+	def search(self, cond, keys=None):
 
 		elements = self._query_cache.get(str(cond))
 
 		if elements == -1:
-			# print 'False'
 			elements = [e for e in self.all() if cond(e)]
 			self._query_cache.set(str(cond), elements)
+			if keys is not None:
+				selected_elements = [{key: e[key] for key in keys} for e in elements]
+				return selected_elements
 		return elements
 
 	def clear(self):
@@ -338,7 +340,9 @@ class Collection(object):
 
 		self.t.cancel()
 
-	
+
+
+
 
 
 

@@ -4,6 +4,7 @@ from JSONStorage import JSONStorage
 from utils import find_current_file, find_num_of_entries_of_current_file, find_list_of_files, find_nth_file
 from LRU import LRUCache
 import os
+import gc
 
 
 class Element(dict):
@@ -325,6 +326,19 @@ class Collection(object):
 		if elements == []:
 			return {}
 		return elements[0]
+
+	def close(self):
+		# when closing the database, remember to store those that are still in cache.
+		self.t.cancel()
+		self.update_storage()
+
+		self._cache.clear()
+		self._current_cache.clear()
+
+		self.t.cancel()
+
+
+
 
 
 

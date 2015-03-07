@@ -4,6 +4,7 @@ from JSONStorage import JSONStorage
 from utils import find_current_file, find_num_of_entries_of_current_file, find_list_of_files, find_nth_file
 from LRU import LRUCache
 import os
+import gc
 
 
 class Element(dict):
@@ -28,7 +29,7 @@ class Collection(object):
 		self.FILE_SIZE_LIMIT = 100
 
 		# The write-in frequency
-		self.WRITE_IN_FREQ = 0.2
+		self.WRITE_IN_FREQ = 0.1
 
 		# The size for the query cache file
 		self.QUERY_CACHE_SIZE_LIMIT = 30
@@ -79,7 +80,7 @@ class Collection(object):
 		self.query_storage = JSONStorage(os.getcwd()+'/'+ self._db.db_name + '/' + self.name + '_query.json')
 		self._query_cache = LRUCache(self.QUERY_CACHE_SIZE_LIMIT, self.query_storage.read(is_ordered_dict=True))
 
-		print self._query_cache.items.keys()
+		# print self._query_cache.items.keys()
 
 
 	def update_storage(self):
@@ -325,6 +326,19 @@ class Collection(object):
 		if elements == []:
 			return {}
 		return elements[0]
+
+	def close(self):
+		# when closing the database, remember to store those that are still in cache.
+		self.t.cancel()
+		self.update_storage()
+
+		self._cache.clear()
+		self._current_cache.clear()
+
+		self.t.cancel()
+
+
+
 
 
 

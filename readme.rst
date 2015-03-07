@@ -3,8 +3,10 @@ Tinyble
 
 Introduction
 --------
-Tinyble is a super lightweight database inheriting [TinyDB](https://github.com/msiemens/tinydb). It is a document-oriented NoSQL but can also be used as a SQL database. It is most suitable for small applications where MongoDB is too way overkill.
+Tinyble is a super lightweight database inheriting `TinyDB`_. It is a document-oriented NoSQL but can also be used as a SQL database. It is most suitable for small applications where MongoDB is too way overkill.
 The features are:
+
+.. _TinyDB: https://github.com/msiemens/tinydb
 
 - Written in pure Python and works well with most Python versions
 - Very small, stored in JSON format and requires no external server
@@ -29,6 +31,9 @@ The latest version is v0.1.4. The current version is still on experimental statu
 v0.1.4.2(07.03.2015)
 ^^^^^^
  - added the close() function
+ - added the projection (partial search) function
+ - added the rst file
+
 
 v0.1.3(04.03.2015)
 ^^^^^
@@ -47,7 +52,9 @@ in the command line tool.
 
 Working with Django
 -------
-A very simple and ugly example showing the use of Tinyble with Django can be found in [Tinyble with Django](https://github.com/StevenSLXie/django_with_tinyble)
+A very simple and ugly example showing the use of Tinyble with Django can be found in `Tinyble with Django`_
+
+.. _Tinyble with Django: https://github.com/StevenSLXie/django_with_tinyble
 
 Example
 -------
@@ -57,9 +64,8 @@ Create a new database and a new collection
 
 ::
 
-    db = Tinyble('data')  # create a new database named "data"
-    collection = db.collection('example') # create a new collections under "data" named "example"
-
+    db = Tinyble('data')
+    collection = db.collection('example') 
 
 Insert some data
 ^^^^^
